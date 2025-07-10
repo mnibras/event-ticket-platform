@@ -1,4 +1,4 @@
-package com.devtiro.tickets.domain;
+package com.devtiro.tickets.domain.entity;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -61,10 +61,13 @@ public class User {
 
     @Override
     public boolean equals(Object o) {
-        if (o == null || getClass() != o.getClass()) return false;
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
         User user = (User) o;
-        return Objects.equals(id, user.id) && Objects.equals(name, user.name) && Objects.equals(email, user.email)
-                && Objects.equals(createdAt, user.createdAt) && Objects.equals(updatedAt, user.updatedAt);
+        return Objects.equals(id, user.id) && Objects.equals(name, user.name) && Objects.equals(email,
+                user.email) && Objects.equals(createdAt, user.createdAt) && Objects.equals(updatedAt,
+                user.updatedAt);
     }
 
     @Override

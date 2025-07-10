@@ -1,6 +1,6 @@
 package com.devtiro.tickets.filter;
 
-import com.devtiro.tickets.domain.User;
+import com.devtiro.tickets.domain.entity.User;
 import com.devtiro.tickets.repository.UserRepository;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
