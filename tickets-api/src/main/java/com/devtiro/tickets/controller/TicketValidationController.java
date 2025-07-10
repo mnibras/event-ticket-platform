@@ -30,9 +30,7 @@ public class TicketValidationController {
         } else {
             ticketValidation = ticketValidationService.validateTicketByQrCode(ticketValidationRequestDto.getId());
         }
-        return ResponseEntity.ok(
-                ticketValidationMapper.toTicketValidationResponseDto(ticketValidation)
-        );
+        return ResponseEntity.ok(ticketValidationMapper.toTicketValidationResponseDto(ticketValidation));
     }
 
 }

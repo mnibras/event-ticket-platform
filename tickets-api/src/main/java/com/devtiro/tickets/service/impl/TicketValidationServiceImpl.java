@@ -26,9 +26,7 @@ public class TicketValidationServiceImpl implements TicketValidationService {
     public TicketValidation validateTicketByQrCode(UUID qrCodeId) {
         QrCode qrCode = qrCodeRepository.findByIdAndStatus(qrCodeId, QrCodeStatusEnum.ACTIVE)
                 .orElseThrow(() -> new QrCodeNotFoundException(
-                        String.format(
-                                "QR Code with ID %s was not found", qrCodeId
-                        )
+                        String.format("QR Code with ID %s was not found", qrCodeId)
                 ));
 
         Ticket ticket = qrCode.getTicket();
