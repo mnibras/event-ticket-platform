@@ -17,8 +17,7 @@ public class TicketsSoldOutException extends EventTicketException {
         super(cause);
     }
 
-    public TicketsSoldOutException(String message, Throwable cause, boolean enableSuppression,
-                                   boolean writableStackTrace) {
+    public TicketsSoldOutException(String message, Throwable cause, boolean enableSuppression, boolean writableStackTrace) {
         super(message, cause, enableSuppression, writableStackTrace);
     }
 }

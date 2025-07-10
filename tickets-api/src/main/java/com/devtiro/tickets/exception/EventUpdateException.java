@@ -17,8 +17,7 @@ public class EventUpdateException extends EventTicketException {
         super(cause);
     }
 
-    public EventUpdateException(String message, Throwable cause, boolean enableSuppression,
-                                boolean writableStackTrace) {
+    public EventUpdateException(String message, Throwable cause, boolean enableSuppression, boolean writableStackTrace) {
         super(message, cause, enableSuppression, writableStackTrace);
     }
 }

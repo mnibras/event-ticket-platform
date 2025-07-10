@@ -17,8 +17,7 @@ public class TicketTypeNotFoundException extends EventTicketException {
         super(cause);
     }
 
-    public TicketTypeNotFoundException(String message, Throwable cause, boolean enableSuppression,
-                                       boolean writableStackTrace) {
+    public TicketTypeNotFoundException(String message, Throwable cause, boolean enableSuppression, boolean writableStackTrace) {
         super(message, cause, enableSuppression, writableStackTrace);
     }
 }

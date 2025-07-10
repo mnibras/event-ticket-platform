@@ -17,8 +17,7 @@ public class QrCodeNotFoundException extends EventTicketException {
         super(cause);
     }
 
-    public QrCodeNotFoundException(String message, Throwable cause, boolean enableSuppression,
-                                   boolean writableStackTrace) {
+    public QrCodeNotFoundException(String message, Throwable cause, boolean enableSuppression, boolean writableStackTrace) {
         super(message, cause, enableSuppression, writableStackTrace);
     }
 }

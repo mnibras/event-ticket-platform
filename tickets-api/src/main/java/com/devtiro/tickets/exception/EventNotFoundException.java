@@ -17,8 +17,7 @@ public class EventNotFoundException extends EventTicketException {
         super(cause);
     }
 
-    public EventNotFoundException(String message, Throwable cause, boolean enableSuppression,
-                                  boolean writableStackTrace) {
+    public EventNotFoundException(String message, Throwable cause, boolean enableSuppression, boolean writableStackTrace) {
         super(message, cause, enableSuppression, writableStackTrace);
     }
 }
