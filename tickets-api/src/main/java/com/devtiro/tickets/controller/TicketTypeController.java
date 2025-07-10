@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.UUID;
 
-import static com.devtiro.tickets.util.JwtUtil.parseUserId;
+import static com.devtiro.tickets.util.JwtUtil.getUserIdFromJwt;
 
 @RestController
 @RequiredArgsConstructor
@@ -24,7 +24,7 @@ public class TicketTypeController {
 
     @PostMapping(path = "/{ticketTypeId}/tickets")
     public ResponseEntity<Void> purchaseTicket(@AuthenticationPrincipal Jwt jwt, @PathVariable UUID ticketTypeId) {
-        ticketTypeService.purchaseTicket(parseUserId(jwt), ticketTypeId);
+        ticketTypeService.purchaseTicket(getUserIdFromJwt(jwt), ticketTypeId);
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
 

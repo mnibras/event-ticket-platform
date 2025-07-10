@@ -10,7 +10,7 @@ public final class JwtUtil {
 
     }
 
-    public static UUID parseUserId(Jwt jwt) {
+    public static UUID getUserIdFromJwt(Jwt jwt) {
         return UUID.fromString(jwt.getSubject());
     }
 

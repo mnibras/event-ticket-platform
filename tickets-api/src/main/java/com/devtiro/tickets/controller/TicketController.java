@@ -20,7 +20,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.UUID;
 
-import static com.devtiro.tickets.util.JwtUtil.parseUserId;
+import static com.devtiro.tickets.util.JwtUtil.getUserIdFromJwt;
 
 @RestController
 @RequestMapping(path = "/api/v1/tickets")
@@ -34,14 +34,14 @@ public class TicketController {
     @GetMapping
     public Page<ListTicketResponseDto> listTickets(@AuthenticationPrincipal Jwt jwt, Pageable pageable) {
         return ticketService
-                .listTicketsForUser(parseUserId(jwt), pageable)
+                .listTicketsForUser(getUserIdFromJwt(jwt), pageable)
                 .map(ticketMapper::toListTicketResponseDto);
     }
 
     @GetMapping(path = "/{ticketId}")
     public ResponseEntity<GetTicketResponseDto> getTicket(@AuthenticationPrincipal Jwt jwt, @PathVariable UUID ticketId) {
         return ticketService
-                .getTicketForUser(parseUserId(jwt), ticketId)
+                .getTicketForUser(getUserIdFromJwt(jwt), ticketId)
                 .map(ticketMapper::toGetTicketResponseDto)
                 .map(ResponseEntity::ok)
                 .orElse(ResponseEntity.notFound().build());
@@ -49,7 +49,7 @@ public class TicketController {
 
     @GetMapping(path = "/{ticketId}/qr-codes")
     public ResponseEntity<byte[]> getTicketQrCode(@AuthenticationPrincipal Jwt jwt, @PathVariable UUID ticketId) {
-        byte[] qrCodeImage = qrCodeService.getQrCodeImageForUserAndTicket(parseUserId(jwt), ticketId);
+        byte[] qrCodeImage = qrCodeService.getQrCodeImageForUserAndTicket(getUserIdFromJwt(jwt), ticketId);
         HttpHeaders headers = new HttpHeaders();
         headers.setContentType(MediaType.IMAGE_PNG);
         headers.setContentLength(qrCodeImage.length);
